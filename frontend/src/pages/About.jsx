@@ -10,8 +10,7 @@ const About = () => {
           Our <span className="text-BaseColor">Gallery</span>
         </h1>
         <p className="text-lg leading-8 mb-8 text-gray-800">
-          "Unveil travel wonders in our gallery, a snapshot of TripsTravel's
-          adventures."
+          "Discover the magic of travel through our gallery – a glimpse into unforgettable TripsTravel adventures."
         </p>
         <ImagesGallery />
       </section>
