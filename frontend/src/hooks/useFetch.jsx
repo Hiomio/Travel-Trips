@@ -1,31 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 const useFetch = (url) => {
-  const [apiData, setApiData] = useState();
-    const [error, setError] = useState()
-  
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url)
-                
-                if(!response.ok){
-                    setError('failed to fetch') 
-                    // toast.error(error)           
-                }
-        
-                const result = await response.json()
-                setApiData(result.data)
-                
-            } catch (error) {
-                
-            }
-          }
+  const [apiData, setApiData] = useState([]);
+  const [error, setError] = useState(null);
 
-          fetchData();
-    }, [url])
-  
-    return {apiData, error}
-}
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
 
-export default useFetch
+        if (!response.ok) {
+          setError('Failed to fetch');
+          return;
+        }
+
+        const result = await response.json();
+        const finalData = result?.data ?? result
+        setApiData(finalData ); // handle both cases
+        console.log('API result:', finalData);
+
+
+      } catch (err) {
+        setError(err.message || 'Something went wrong');
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  return { apiData, error };
+};
+
+export default useFetch;
