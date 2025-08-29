@@ -52,13 +52,13 @@ const Header = () => {
     <header ref={headerRef} className="transition-all shadow-md duration-300">
       <nav className="container mx-auto px-5 flex justify-between items-center py-2">
         {role === "admin" ? (
-          <div className="h-8 md:h-12 md:hidden">
+          <div className="h-12 md:h-16">
             <img src={Logo} alt="" className="h-full" />
           </div>
         ) : (
-          <div className="h-8 md:h-12">
+          <div className="h-16 md:h-16">
             <Link to={"/"}>
-              <img src={Logo} alt="" className="h-full" />
+              <img src={Logo} alt="" className="h-full " />
             </Link>
           </div>
         )}
