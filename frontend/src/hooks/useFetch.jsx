@@ -15,9 +15,8 @@ const useFetch = (url) => {
         }
 
         const result = await response.json();
-        const finalData = result?.data ?? result
-        setApiData(finalData ); // handle both cases
-        console.log('API result:', finalData);
+        setApiData(result.data ); // handle both cases
+        
 
 
       } catch (err) {
